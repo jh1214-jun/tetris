@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f1f3f5;
+  color: #20242a;
+  font-family: Arial, "Malgun Gothic", sans-serif;
+}
+
+.game-layout {
+  /* 넓은 화면에서는 높이와 너비에 맞춰 보드를 줄이고 우측 패널을 유지합니다. */
+  --board-width: min(300px, calc(50svh - 24px));
+  width: min(100%, calc(var(--board-width) + 168px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 144px;
+  align-items: start;
+  gap: 24px;
+}
+
+#game-board {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 2;
+  background: #000;
+}
+
+.score-panel {
+  min-width: 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.score-panel h1,
+.score-panel h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.panel-section + .panel-section {
+  margin-top: 24px;
+}
+
+#score,
+#level {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+#next-board {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background: #000;
+}
+
+#restart-button {
+  display: block;
+  margin-top: 24px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #245bd6;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+#restart-button:hover {
+  background: #1948af;
+}
+
+#restart-button:focus-visible {
+  outline: 3px solid #245bd6;
+  outline-offset: 3px;
+}
+
+/* 작은 화면에서는 패널을 보드 아래로 옮겨 가로 스크롤을 방지합니다. */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  .game-layout {
+    width: min(100%, 300px);
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 12px;
+  }
+
+  #game-board {
+    width: min(100%, max(120px, calc(50svh - 110px)));
+  }
+
+  .score-panel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .panel-section {
+    min-width: 0;
+  }
+
+  .panel-section + .panel-section {
+    margin-top: 0;
+  }
+
+  .score-panel h1,
+  .score-panel h2 {
+    font-size: 14px;
+  }
+
+  #score,
+  #level {
+    font-size: 26px;
+  }
+
+  #restart-button {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}

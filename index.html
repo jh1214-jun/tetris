@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="game-layout" aria-label="테트리스">
+      <canvas id="game-board" width="300" height="600" aria-label="테트리스 게임 보드">
+        이 브라우저는 캔버스를 지원하지 않습니다.
+      </canvas>
+      <aside class="score-panel" aria-labelledby="score-heading">
+        <section class="panel-section">
+          <h1 id="score-heading">점수</h1>
+          <p id="score">0</p>
+        </section>
+        <section class="panel-section">
+          <h2>레벨</h2>
+          <p id="level">1</p>
+        </section>
+        <section class="panel-section">
+          <h2 id="next-heading">다음 블록</h2>
+          <canvas id="next-board" width="120" height="120" aria-labelledby="next-heading">
+            다음 블록 미리보기
+          </canvas>
+        </section>
+        <button id="restart-button" type="button">다시 시작</button>
+      </aside>
+    </main>
+  </body>
+</html>

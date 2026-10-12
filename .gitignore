@@ -1,0 +1,28 @@
+# Windows 임시·메타데이터 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS 임시·메타데이터 파일
+.DS_Store
+._*
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+
+# 에디터의 로컬 작업 설정과 기록
+.vscode/
+.idea/
+.vs/
+.history/
+
+# 에디터 잠금·백업·임시 파일
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+*.temp
+.#*
+\#*#
